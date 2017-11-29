@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using PlayWith.BotApp.HotelBot.Dialogs;
 
 namespace PlayWith.BotApp.HotelBot
 {
@@ -18,7 +19,7 @@ namespace PlayWith.BotApp.HotelBot
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                await Conversation.SendAsync(activity, () => new Dialogs.RootDialog());
+                await Conversation.SendAsync(activity, () => RoomReservationDialog.dialog);
             }
             else
             {
